@@ -50,11 +50,11 @@ const sequelize = new Sequelize({
     dialectOptions: {
         instanceName: 'MSSQLSERVER'
     },
-    host: '106.116.82.124',
+    host: '100.110.80.120',
     port: '1433',
-    username: 'ak',
-    password: 'samsung1!',
-    database: 'AK'
+    username: 'login',
+    password: 'pass',
+    database: 'DBName'
 });
 
 sequelize
