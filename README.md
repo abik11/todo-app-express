@@ -9,6 +9,21 @@ Soon I will add here some REST api to manage *tasks to do* which will be used wi
 
 I really want to add some **mongoose** example too and maybe some **ejs** or handlebars.
 
+### How to enable SPA apps 
+```javascript
+app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
+```
+
+### How to make your own middleware
+```javascript
+function middlewareLogger(req, res, next) {
+    console.log("Executed for every route");
+    next();
+}
+
+app.use(middlewareLogger);
+```
+
 ## Useful links
 
 #### Example projects
@@ -25,3 +40,25 @@ I really want to add some **mongoose** example too and maybe some **ejs** or han
 [Sequelize docs](http://docs.sequelizejs.com/)<br />
 [Sequelize connection issue](https://github.com/sequelize/sequelize/issues/10556)<br />
 [Tedious](https://github.com/tediousjs/tedious)<br />
+
+##### Testing Sequelize connection to MSSQL Server
+```javascript
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize({
+    dialect: 'mssql',
+    dialectModulePath: 'tedious',
+    dialectOptions: {
+        instanceName: 'MSSQLSERVER'
+    },
+    host: '106.116.82.124',
+    port: '1433',
+    username: 'ak',
+    password: 'samsung1!',
+    database: 'AK'
+});
+
+sequelize
+    .authenticate()
+    .then(() => console.log('Connection succeeded!'))
+    .catch(error => console.error(`Connection error: ${error}`));
+```
