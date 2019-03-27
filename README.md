@@ -24,6 +24,11 @@ function middlewareLogger(req, res, next) {
 app.use(middlewareLogger);
 ```
 
+### Setting system variable in Windows
+```powershell
+[System.Environment]::SetEnvironmentVariable("MONGO", "mongodb+srv://user:pass@cluster.mongodb.net/test?retryWrites=true");
+```
+
 ## Useful links
 
 #### Example projects
