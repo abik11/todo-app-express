@@ -7,6 +7,7 @@ const port = 5000;
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
+require('./config/mongoose');
 require('./config/multer')(app);
 require('./routes')(app);
 
