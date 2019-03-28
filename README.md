@@ -1,5 +1,7 @@
 # todo-app-server
 This is some kind my of playground to test and learn stuff connected to Node.js and **Express** which seem to be really cool technologies. By now you can find here:
+* **express** - configuring some routing with rest api, template engine and static files with some basic error handling
+* **handlebars** - example of templates and how to use them with express
 * **multer** - little example of image uploading 
 * **mongoose** - example of how to connect and retrive data from MongoDB through Mongoose
 
@@ -7,27 +9,9 @@ Soon I will add here some REST api to manage *tasks to do* which will be used wi
 * [vue.js](https://github.com/abik11/todo-app-vue)
 * [react](https://github.com/abik11/todo-app-react) (this one is just starting slowly.....) 
 
-I really want to add some **ejs** example.
-
 ### How to enable SPA apps 
 ```javascript
 app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
-```
-
-### How to make your own middleware
-```javascript
-function middlewareLogger(req, res, next) {
-    console.log("Executed for every route");
-    next();
-}
-
-app.use(middlewareLogger);
-```
-
-### Setting system variable in Windows
-```powershell
-[System.Environment]::SetEnvironmentVariable
-    ("MONGO", "mongodb+srv://user:pass@cluster.mongodb.net/test?retryWrites=true");
 ```
 
 ## Useful links
@@ -43,9 +27,10 @@ app.use(middlewareLogger);
 [Creating a REST API with Node.js](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)<br />
 
 #### Sequelize
+In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!
 [Sequelize docs](http://docs.sequelizejs.com/)<br />
-[Sequelize connection issue](https://github.com/sequelize/sequelize/issues/10556)<br />
 [Tedious](https://github.com/tediousjs/tedious)<br />
+[Sequelize connection issue](https://github.com/sequelize/sequelize/issues/10556)<br />
 
 ##### Testing Sequelize connection to MSSQL Server
 ```javascript

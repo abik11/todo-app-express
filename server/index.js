@@ -29,5 +29,12 @@ app.engine('.hbs', exphbs({
 //static files
 app.use(express.static(path.join(__dirname, 'public')));
 
+//error handlers
+app.use((req, res) => res.status(404).send('Wrong URL'));
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('Something went wrong...');
+});
+
 app.listen(app.get('port'), 
     () => console.log(`[Server running on port: ${[app.get('port')]}]`));
