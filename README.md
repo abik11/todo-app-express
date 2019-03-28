@@ -27,7 +27,7 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [Creating a REST API with Node.js](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)<br />
 
 #### Sequelize
-In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!
+In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!<br />
 [Sequelize docs](http://docs.sequelizejs.com/)<br />
 [Tedious](https://github.com/tediousjs/tedious)<br />
 [Sequelize connection issue](https://github.com/sequelize/sequelize/issues/10556)<br />

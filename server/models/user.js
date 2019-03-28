@@ -6,7 +6,8 @@ const userSchema = new Schema({
     address: { 
         city: String,
         street: String
-    }
+    },
+    role: { type: Schema.Types.ObjectId, ref: 'role' }
 });
 
-module.exports = model('user', userSchema);
+module.exports = model('user', userSchema); 
