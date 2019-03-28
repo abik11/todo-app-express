@@ -1,6 +1,5 @@
-const mongoose = require( "mongoose" );
-require('../models/user');
-//require('../models'); //<- this is how it should be!
+const mongoose = require('mongoose');
+require('../models');
 
 mongoose
     .connect(process.env.MONGO, { useNewUrlParser: true })
