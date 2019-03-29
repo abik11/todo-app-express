@@ -1,21 +1,21 @@
 const express = require('express');
-const repository = require('./repository');
+const repo = require('./repository');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
     try {
-        res.status(200).json(await repository.getAllUsers());
+        res.success(await repo.getAllUsers());
     }
-    catch(err){
+    catch (err) {
         next(err);
     }
 });
 
 router.get('/:id', async (req, res, next) => {
     try {
-        res.status(200).json(await repository.getUserById(req.params.id));
+        res.success(await repo.getUserById(req.params.id));
     }
-    catch(err){
+    catch (err) {
         next(err);
     }
 });
@@ -23,10 +23,26 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     try {
         const user = req.body;
-        if(user.name && user.name != '')
-            res.status(201).json(await repository.addUser(req.body));
+        if (user.name && user.name != '')
+            res.created(await repo.addUser(req.body));
         else
-            res.status(400).json({ error: 'Bad Request', message: 'No name given' });
+            res.badRequest({ message: 'No name given' });
+    }
+    catch (err) {
+        next(err);
+    }
+});
+
+router.delete('/:id', async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const user = await repo.getUserById(id);
+        if (user) {
+            await repo.deleteUser(id);
+            res.success({ name: user.name });
+        }
+        else
+            res.badRequest({ message: 'No such user' });
     }
     catch (err) {
         next(err);
