@@ -22,7 +22,11 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
     try {
-        res.status(201).json(await repository.addUser(req.body));
+        const user = req.body;
+        if(user.name && user.name != '')
+            res.status(201).json(await repository.addUser(req.body));
+        else
+            res.status(400).json({ error: 'Bad Request', message: 'No name given' });
     }
     catch (err) {
         next(err);

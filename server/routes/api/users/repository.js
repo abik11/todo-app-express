@@ -9,10 +9,13 @@ const getUserById = async id =>
     await User.findOne({ _id: id }).populate('role');
 
 const addUser = async user => {
-    const reader = await Role.findOne({ name: 'reader' });
+    const readerRole = await Role.findOne({ name: 'reader' });
+        
     const newUser = await User({
-        ...user,
-        role: reader._id
+        name: user.name,
+        birthday: user.birthday,
+        address: user.address,
+        role: readerRole._id
     });
     
     return await newUser.save();
