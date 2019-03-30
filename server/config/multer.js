@@ -10,7 +10,7 @@ module.exports = app => {
 
     app.use(multer({ 
         storage,
-        limits: { fileSize: 4.5 * 1024 * 1024 }, //4.5 MB
+        limits: { fileSize: 0.8 * 1024 * 1024 }, //4.5 MB
         fileFilter: (req, file, cb) => {
             const fileTypes = /jpeg|jpg|png|gif/i;
             const mimeType = fileTypes.test(file.mimetype);

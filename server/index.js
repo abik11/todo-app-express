@@ -7,7 +7,7 @@ const app = express();
 if(process.env.NODE_ENV != 'production')
     require('dotenv').config();
 
-app.set('port', process.env.APP_PORT || 5001);
+app.set('port', process.env.PORT || 5001);
 app.use(logger('dev'));
 app.use(require('./responses'));
 require('./config/mongoose');
