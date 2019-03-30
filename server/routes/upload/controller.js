@@ -2,12 +2,24 @@ const repo = require('./repository');
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary').v2;
 
-module.exports.homeView = (req, res) => {
-    res.render('upload/images');
+module.exports.homeView = async (req, res) => {
+    try {
+        const images = await repo.getAllImages();
+        res.render('upload/images', { images });
+    }
+    catch(err){
+        next(err);
+    }
 };
 
-module.exports.addView = (req, res) => {
-    res.render('upload/upload');
+module.exports.addView = async (req, res) => {
+    try {
+        const images = await repo.getAllImages();
+        res.render('upload/upload', { images });
+    }
+    catch(err){
+        next(err);
+    }
 };
 
 module.exports.create = async (req, res) => {
@@ -17,11 +29,11 @@ module.exports.create = async (req, res) => {
 
     try {
         const { url, public_id } = await cloudinary.uploader.upload(imagePath);
-        const newImage = await repo.addImage({ title, description, url, public_id });
+        await repo.addImage({ title, description, url, public_id });
         await fs.unlink(imagePath);
-        res.redirect(url);
+        res.redirect('/add');
     }
-    catch(err) {
+    catch (err) {
         next(err);
     }
 };

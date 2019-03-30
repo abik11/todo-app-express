@@ -1,2 +1,11 @@
-<h3>Express Gallery</h3>
-<p>Welcome in an example of Node.js with Express. You will find here some examples of routing, image upload with multer and data retrival from MongoDB through Mongoose. You can access rest api or explore the interface build with handlebars.</p>
+<div class="row">
+    <div class="col-12">
+        <h3>Express Gallery</h3>
+        <p>Welcome in an example of Node.js with Express. You will find here some examples of routing, image upload
+            with multer and data retrival from MongoDB through Mongoose. You can access rest api or explore the
+            interface build with handlebars.</p>
+        {{#each images}}
+            <img src="{{url}}" alt="{{title}}" />
+        {{/each}}
+    </div>
+</div>
