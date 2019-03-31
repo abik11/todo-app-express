@@ -5,6 +5,7 @@ This is some kind of my playground to test and learn stuff connected to Node.js 
 * **handlebars** - example of templates and how to use them with express
 * **multer** - little example of image uploading
 * **cloudinary** - storing images on cloud storage
+* **swiper** - small example of an image gallery made with swipe
 
 Soon I will add here some REST API to manage *tasks to do* which will be used with two front end clients:
 * [vue.js](https://github.com/abik11/todo-app-vue)

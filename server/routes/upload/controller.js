@@ -2,9 +2,9 @@ const repo = require('./repository');
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary').v2;
 
-module.exports.homeView = async (req, res) => {
+module.exports.homeView = async (req, res, next) => {
     try {
-        const images = await repo.getAllImages();
+        const images = await repo.getTopImages(10);
         res.render('upload/images', { images });
     }
     catch(err){
@@ -12,7 +12,7 @@ module.exports.homeView = async (req, res) => {
     }
 };
 
-module.exports.addView = async (req, res) => {
+module.exports.addView = async (req, res, next) => {
     try {
         const images = await repo.getAllImages();
         res.render('upload/upload', { images });
@@ -22,7 +22,7 @@ module.exports.addView = async (req, res) => {
     }
 };
 
-module.exports.create = async (req, res) => {
+module.exports.create = async (req, res, next) => {
     //req.file added by multer
     const imagePath = req.file.path;
     const { title, description } = req.body;
@@ -34,6 +34,22 @@ module.exports.create = async (req, res) => {
         res.redirect('/add');
     }
     catch (err) {
+        next(err);
+    }
+};
+
+module.exports.delete = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+        const image = await repo.deleteImage(id);
+        if(image){
+            await cloudinary.uploader.destroy(image.public_id);
+            res.redirect('/add');
+        }
+        else
+            res.badRequest({ message: 'No such image' });
+    }
+    catch(err){
         next(err);
     }
 };
