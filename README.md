@@ -1,11 +1,11 @@
 # todo-app-server
 This is some kind of my playground to test and learn stuff connected to Node.js and **Express** which seem to be really cool technologies. By now you can find here:
-* **express** - configuration of some routing with a little REST API, a template engine and static files with some basic error handling
-* **mongoose** - example of how to connect and retrive data from MongoDB through Mongoose
-* **handlebars** - example of templates and how to use them with express
-* **multer** - little example of image uploading
-* **cloudinary** - storing images on cloud storage
-* **swiper** - small example of an image gallery made with swipe
+* **Express** - configuration of some routing with a little REST API, a template engine and static files with some basic error handling
+* **Mongoose** - example of how to connect and retrive data from MongoDB through Mongoose
+* **Handlebars** - example of templates and how to use them with Express and Bootstrap
+* **Multer** - little example of image uploading
+* **Cloudinary** - storing images on cloud storage
+* **Swiper** - small example of an image gallery made with Swiper
 
 Soon I will add here some REST API to manage *tasks to do* which will be used with two front end clients:
 * [vue.js](https://github.com/abik11/todo-app-vue)
