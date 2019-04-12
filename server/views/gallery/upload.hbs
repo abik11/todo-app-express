@@ -9,7 +9,7 @@
         <div class="card border-info mb-3" style="max-width: 20rem;">
             <div class="card-header">Add image</div>
             <div class="card-body">
-                <form action="add" method="POST" enctype="multipart/form-data">
+                <form action="/gallery/add" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="text" name="title" class="form-control" placeholder="Image title" />
                     </div>
@@ -45,7 +45,7 @@
                         <td class="text-truncate">{{description}}</td>
                         <td>
                             <a class="btn btn-outline-info" href="{{url}}" target="_blank">Show</a>
-                            <a class="btn btn-outline-danger" href="/delete/{{_id}}">Delete</a>
+                            <a class="btn btn-outline-danger" href="/gallery/delete/{{_id}}">Delete</a>
                         </td>
                     </tr>
                 {{/each}}
