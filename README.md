@@ -38,6 +38,10 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [Subida de Imagenes en Nodejs con Multer](https://www.youtube.com/watch?v=AbJ-y2vZgBs)<br />
 [Galeria de Fotos/Imagenes con Nodejs, Mongodb y Cloudinary](https://youtu.be/jP2DNQyOE90) <br />
 
+#### Express and Passport
+[Node.js With Passport Authentication](https://www.youtube.com/watch?v=6FOq4cUdH8k)<br />
+[Node.js Server & Authentication Basics](https://medium.com/@evangow/server-authentication-basics-express-sessions-passport-and-curl-359b7456003d)<br />
+
 #### Sequelize
 In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!
 <br />

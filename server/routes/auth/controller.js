@@ -11,5 +11,16 @@ module.exports.login = async (req, res, next) => {
 };
 
 module.exports.register = async (req, res, next) => {
-    res.send(req.body);
+    const { name, email, pass1, pass2 } = req.body;
+    let errors = [];
+
+    if (!name || !email || !pass1 || !pass2)
+        errors.push({ message: 'Fill all the fields' });
+    if (pass1 != pass2)
+        errors.push({ message: 'Passwords do not match' });
+
+    if (errors.length > 0)
+        res.render('auth/register', { errors, name, email });
+    else
+        res.send(req.body); //adding new user here ... soon :)
 };
