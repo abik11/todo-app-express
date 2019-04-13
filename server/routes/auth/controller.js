@@ -1,3 +1,5 @@
+const repo = require('@repository/users');
+
 module.exports.loginView = async (req, res, next) => {
     res.render('auth/login');
 };

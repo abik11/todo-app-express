@@ -1,4 +1,4 @@
-const repo = require('./repository');
+const repo = require('@repository/users');
 
 module.exports.readAll = async (req, res, next) => {
     try {

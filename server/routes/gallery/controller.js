@@ -1,4 +1,4 @@
-const repo = require('./repository');
+const repo = require('@repository/images');
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary').v2;
 

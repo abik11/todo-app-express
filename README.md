@@ -1,6 +1,7 @@
 # todo-app-server
 This is some kind of my playground to test and learn stuff connected to Node.js and **Express** which seem to be really cool technologies. By now you can find here:
 * **Express** - configuration of some routing with a little REST API, a template engine and static files with some basic error handling
+* **Passport** - authorization example made with Passport and express-session
 * **Mongoose** - example of how to connect and retrive data from MongoDB through Mongoose
 * **Handlebars** - example of templates and how to use them with Express and Bootstrap
 * **Multer** - little example of image uploading
