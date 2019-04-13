@@ -1,4 +1,5 @@
 const repo = require('@repository/images');
+const { getUserById } = require('@repository/users');
 const fs = require('fs-extra');
 const cloudinary = require('cloudinary').v2;
 
@@ -28,10 +29,15 @@ module.exports.create = async (req, res, next) => {
     const { title, description } = req.body;
 
     try {
-        const { url, public_id } = await cloudinary.uploader.upload(imagePath);
-        await repo.addImage({ title, description, url, public_id });
-        await fs.unlink(imagePath);
-        res.redirect('/gallery/add');
+        const user = await getUserById(res.locals.user.id);
+        if(user) {
+            const { url, public_id } = await cloudinary.uploader.upload(imagePath);
+            await repo.addImage({ title, description, url, public_id, user });
+            await fs.unlink(imagePath);
+            res.redirect('/gallery/add');
+        } 
+        else
+            res.serverError(`No user with id:${res.locals.user.id} found`);
     }
     catch (err) {
         next(err);

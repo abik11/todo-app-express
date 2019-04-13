@@ -31,6 +31,7 @@ app.use(passport.session());
 app.use((req, res, next) => {
     if(req.user)
         res.locals.user = {
+            id: req.user._id,
             name: req.user.name,
             email: req.user.email
         };
@@ -57,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res) => res.status(404).send('Wrong URL'));
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.serverError(`Something went wrong - ${err.message}`)
+    res.serverError(err.message);
 });
 
 app.listen(app.get('port'), 

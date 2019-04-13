@@ -35,6 +35,7 @@
                 <tr>
                     <th>Title</th>
                     <th>Description</th>
+                    <th>User</th>
                     <th>Operations</th>
                 </tr>
             </thead>
@@ -43,6 +44,7 @@
                     <tr>
                         <td class="text-truncate">{{title}}</td>
                         <td class="text-truncate">{{description}}</td>
+                        <td>{{user.name}}</td>
                         <td>
                             <a class="btn btn-outline-info" href="{{url}}" target="_blank">Show</a>
                             <a class="btn btn-outline-danger" href="/gallery/delete/{{_id}}">Delete</a>

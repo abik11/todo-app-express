@@ -15,7 +15,7 @@ const responses = {
     },
 
     serverError(message){
-        return this.status(500).send(message);
+        return this.status(500).send(`Something went wrong - ${message}`);
     }
 };
 
