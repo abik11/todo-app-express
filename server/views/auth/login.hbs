@@ -1,4 +1,9 @@
 <div class="row">
+    {{#if user}}
+    <div class="col-12 col-md-8 offset-md-2">
+        <h2>Hello {{user.name}}</h2>
+    </div>
+    {{else}}
     <div class="col-12 col-md-4 offset-md-4">
         {{> authMessages}}
         {{#if message}}
@@ -33,4 +38,5 @@
         </div>
         <p>You are not registered yet? <a href="/register">Register here!</a></p>
     </div>
+    {{/if}}
 </div>

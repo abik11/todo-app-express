@@ -28,6 +28,14 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+    if(req.user)
+        res.locals.user = {
+            name: req.user.name,
+            email: req.user.email
+        };
+    next();
+});
 
 //api
 app.use(express.json());

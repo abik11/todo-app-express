@@ -15,10 +15,15 @@ async function getHashedPassword(password){
 };
 
 module.exports.loginView = async (req, res, next) => {
-    res.render('auth/login', { 
-        message: req.flash('message'),
-        error: req.flash('error')
-    });
+    try {
+        res.render('auth/login', { 
+            message: req.flash('message'),
+            error: req.flash('error')
+        });
+    }
+    catch(err){
+        next(err);
+    }
 };
 
 module.exports.registerView = async (req, res, next) => {
@@ -28,9 +33,15 @@ module.exports.registerView = async (req, res, next) => {
 module.exports.login = async (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/gallery/show',
-        failureRedirect: '/',
+        failureRedirect: '/login',
         failureFlash: true
     })(req, res, next);
+};
+
+module.exports.logout = async (req, res, next) => {
+    req.logout();
+    req.flash('message', 'You are logged out');
+    res.redirect('/login');
 };
 
 module.exports.register = async (req, res, next) => {
@@ -55,7 +66,7 @@ module.exports.register = async (req, res, next) => {
                 hash = await getHashedPassword(pass1);
                 user = await repo.addUser({ name, email, password: hash });
                 req.flash('message', 'You can now login');
-                res.redirect('/'); 
+                res.redirect('/login'); 
             }
         }
         catch(err){

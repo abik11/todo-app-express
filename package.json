@@ -33,6 +33,7 @@
     "uuid": "^3.3.2"
   },
   "_moduleAliases": {
-    "@repository": "server/repository"
+    "@repository": "server/repository",
+    "@auth": "server/auth.js"
   }
 }
