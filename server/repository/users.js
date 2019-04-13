@@ -8,12 +8,15 @@ const getAllUsers = async () =>
 const getUserById = async id => 
     await User.findOne({ _id: id }).populate('role');
 
+const getUserByEmail = async email => 
+    await User.findOne({ email }).populate('role');
+
 const addUser = async user => {
-    const { name, birthday, address } = user;
+    const { name, email, password, birthday, address } = user;
     const role = await Role.findOne({ name: 'reader' });
 
     const newUser = await User({
-        name, birthday, address, role
+        name, email, password, birthday, address, role
     });
     
     return await newUser.save();
@@ -25,6 +28,7 @@ const deleteUser = async id =>
 module.exports = {
     getAllUsers,
     getUserById,
+    getUserByEmail,
     addUser,
     deleteUser
 };

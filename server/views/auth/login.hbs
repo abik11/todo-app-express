@@ -1,6 +1,14 @@
 <div class="row">
     <div class="col-12 col-md-4 offset-md-4">
         {{> authMessages}}
+        {{#if message}}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+        </div>
+        {{/if}}
         <div class="card border-info mb-3" style="max-width: 20rem;">
             <div class="card-header"><i class="fas fa-sign-in-alt"></i>&nbsp;Login</div>
             <div class="card-body">

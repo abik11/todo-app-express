@@ -9,8 +9,8 @@ This is some kind of my playground to test and learn stuff connected to Node.js 
 * **Swiper** - small example of an image gallery made with Swiper
 
 Soon I will add here some REST API to manage *tasks to do* which will be used with two front end clients:
-* [vue.js](https://github.com/abik11/todo-app-vue)
-* [react](https://github.com/abik11/todo-app-react) (this one is just starting slowly.....) 
+* [Vue.js](https://github.com/abik11/todo-app-vue)
+* [React](https://github.com/abik11/todo-app-react) (this one is just starting slowly.....) 
 
 ### Configuration
 To make it all work you have to set three system variables:
@@ -34,6 +34,7 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [MongoDB Complete Introduction](https://www.youtube.com/watch?v=VELru-FCWDM)<br />
 [Full Stack Vue.js, Express & MongoDB](https://www.youtube.com/watch?v=j55fHUJqtyw&list=PLillGF-RfqbYSx-Ab1xWVanGKtowTsnNm)<br />
 [Creating a REST API with Node.js](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)<br />
+[Better local require() paths for Node.js](https://gist.github.com/branneman/8048520)<br />
 
 #### Tutoriales en español
 [Subida de Imagenes en Nodejs con Multer](https://www.youtube.com/watch?v=AbJ-y2vZgBs)<br />
