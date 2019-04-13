@@ -36,10 +36,13 @@ module.exports.create = async (req, res, next) => {
             await fs.unlink(imagePath);
             res.redirect('/gallery/add');
         } 
-        else
+        else {            
+            await fs.unlink(imagePath);
             res.serverError(`No user with id:${res.locals.user.id} found`);
+        }
     }
     catch (err) {
+        await fs.unlink(imagePath);
         next(err);
     }
 };
