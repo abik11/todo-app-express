@@ -12,6 +12,10 @@ const responses = {
             error: 'Bad Request',
             ...payload
         });
+    },
+
+    serverError(message){
+        return this.status(500).send(message);
     }
 };
 

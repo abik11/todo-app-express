@@ -1,4 +1,5 @@
 const repo = require('@repository/users');
+const passport = require('passport');
 const bcrypt = require('bcryptjs');
 
 async function getHashedPassword(password){
@@ -14,7 +15,10 @@ async function getHashedPassword(password){
 };
 
 module.exports.loginView = async (req, res, next) => {
-    res.render('auth/login', { message: req.flash('message') });
+    res.render('auth/login', { 
+        message: req.flash('message'),
+        error: req.flash('error')
+    });
 };
 
 module.exports.registerView = async (req, res, next) => {
@@ -22,7 +26,11 @@ module.exports.registerView = async (req, res, next) => {
 };
 
 module.exports.login = async (req, res, next) => {
-    res.send(req.body);
+    passport.authenticate('local', {
+        successRedirect: '/gallery/show',
+        failureRedirect: '/',
+        failureFlash: true
+    })(req, res, next);
 };
 
 module.exports.register = async (req, res, next) => {

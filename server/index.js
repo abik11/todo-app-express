@@ -2,6 +2,7 @@ require('module-alias/register');
 const express = require('express');
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('passport');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const uuid = require('uuid/v4');
@@ -15,6 +16,7 @@ app.set('port', process.env.PORT || 5001);
 app.use(logger('dev'));
 app.use(require('./responses'));
 require('./config/mongoose');
+require('./config/passport')(passport);
 require('./config/multer')(app);
 
 //session
@@ -24,6 +26,8 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //api
 app.use(express.json());
@@ -45,7 +49,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res) => res.status(404).send('Wrong URL'));
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send(`Something went wrong - ${err.message}`);
+    res.serverError(`Something went wrong - ${err.message}`)
 });
 
 app.listen(app.get('port'), 
