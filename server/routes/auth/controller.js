@@ -14,7 +14,7 @@ async function getHashedPassword(password){
 };
 
 module.exports.loginView = async (req, res, next) => {
-    res.render('auth/login');
+    res.render('auth/login', { message: req.flash('message') });
 };
 
 module.exports.registerView = async (req, res, next) => {
@@ -46,7 +46,8 @@ module.exports.register = async (req, res, next) => {
             else{
                 hash = await getHashedPassword(pass1);
                 user = await repo.addUser({ name, email, password: hash });
-                res.render('auth/login', { message: 'You can now login' }); 
+                req.flash('message', 'You can now login');
+                res.redirect('/'); 
             }
         }
         catch(err){

@@ -1,9 +1,11 @@
 require('module-alias/register');
 const express = require('express');
 const session = require('express-session');
-const path = require('path');
-const logger = require('morgan');
+const flash = require('connect-flash');
 const exphbs = require('express-handlebars');
+const path = require('path');
+const uuid = require('uuid/v4');
+const logger = require('morgan');
 const app = express();
 
 if(process.env.NODE_ENV != 'production')
@@ -14,6 +16,14 @@ app.use(logger('dev'));
 app.use(require('./responses'));
 require('./config/mongoose');
 require('./config/multer')(app);
+
+//session
+app.use(session({
+    secret: uuid(),
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(flash());
 
 //api
 app.use(express.json());
