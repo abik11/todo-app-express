@@ -32,7 +32,7 @@ module.exports.registerView = async (req, res, next) => {
 
 module.exports.login = async (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect: '/gallery/show',
+        successRedirect: '/',
         failureRedirect: '/login',
         failureFlash: true
     })(req, res, next);
