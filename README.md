@@ -1,14 +1,15 @@
 # todo-app-server
 This is some kind of my playground to test and learn stuff connected to Node.js and **Express** which seem to be really cool technologies. By now you can find here:
 * **Express** - configuration of some routing with a little REST API, a template engine and static files with some basic error handling
-* **Passport** - authorization example made with Passport and express-session
+* **Passport** - authorization example made with Passport
 * **Mongoose** - example of how to connect and retrive data from MongoDB through Mongoose
 * **Handlebars** - example of templates and how to use them with Express and Bootstrap
 * **Multer** - little example of image uploading
 * **Cloudinary** - storing images on cloud storage
 * **Swiper** - small example of an image gallery made with Swiper
 
-Soon I will add here some REST API to manage *tasks to do* which will be used with two front end clients:
+The REST API in this project allows to list, add and delete users, which is quite handy while testing the registration mechanism. On production this User API should be authorized, here it is just for example.<br />
+Also it allows to list, add and delete *tasks to do* so it can be used with the following front end clients (that was actually the reason to create this project but it grew a little bit):
 * [Vue.js](https://github.com/abik11/todo-app-vue)
 * [React](https://github.com/abik11/todo-app-react) (this one is just starting slowly.....) 
 
