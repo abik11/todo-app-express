@@ -36,6 +36,8 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [Full Stack Vue.js, Express & MongoDB](https://www.youtube.com/watch?v=j55fHUJqtyw&list=PLillGF-RfqbYSx-Ab1xWVanGKtowTsnNm)<br />
 [Creating a REST API with Node.js](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)<br />
 [Better local require() paths for Node.js](https://gist.github.com/branneman/8048520)<br />
+[CORS on ExpressJS](https://enable-cors.org/server_expressjs.html)<br />
+[How to allow CORS?](https://stackoverflow.com/questions/7067966/how-to-allow-cors)<br />
 
 #### Tutoriales en español
 [Subida de Imagenes en Nodejs con Multer](https://www.youtube.com/watch?v=AbJ-y2vZgBs)<br />
