@@ -18,6 +18,7 @@ To make it all work you have to set three system variables:
 * PORT - the port on which the application will listen
 * MONGO - MongoDB connection string
 * CLOUDINARY_URL - Cloudinary connection string
+You can add `.env` file with variables definition.
 
 ### How to enable SPA apps 
 ```javascript
@@ -36,6 +37,7 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [Full Stack Vue.js, Express & MongoDB](https://www.youtube.com/watch?v=j55fHUJqtyw&list=PLillGF-RfqbYSx-Ab1xWVanGKtowTsnNm)<br />
 [Creating a REST API with Node.js](https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q)<br />
 [Better local require() paths for Node.js](https://gist.github.com/branneman/8048520)<br />
+[You should never ever run directly against Node.js in production. Maybe.](https://medium.freecodecamp.org/you-should-never-ever-run-directly-against-node-js-in-production-maybe-7fdfaed51ec6)<br />
 
 #### Tutoriales en español
 [Subida de Imagenes en Nodejs con Multer](https://www.youtube.com/watch?v=AbJ-y2vZgBs)<br />
