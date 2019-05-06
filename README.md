@@ -56,7 +56,7 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [JavaScript Testing Introduction Tutorial](https://www.youtube.com/watch?v=r9HdJ8P6GQI)<br />
 [JavaScript Testing - Mocking Async Code](https://www.youtube.com/watch?v=4Fl5GH4eYZ8)<br />
 [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests?fbclid=IwAR1ZZ6ndoKZB6ikkTCmpk9KwEBvHy9hav1daogF8uU3eJ3CAsDVlGZU5d3k)<br />
-http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/
+http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/ <br />
 https://codewithhugo.com/testing-an-express-app-with-supertest-moxios-and-jest/
 
 #### Sequelize
