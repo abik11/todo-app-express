@@ -53,11 +53,11 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 [How to allow CORS?](https://stackoverflow.com/questions/7067966/how-to-allow-cors)<br />
 
 #### Testing
-[JavaScript Testing Introduction Tutorial](https://www.youtube.com/watch?v=r9HdJ8P6GQI)<br />
-[JavaScript Testing - Mocking Async Code](https://www.youtube.com/watch?v=4Fl5GH4eYZ8)<br />
+[Mongoose models and unit tests: The definitive guide](https://codeutopia.net/blog/2016/06/10/mongoose-models-and-unit-tests-the-definitive-guide/)<br />
 [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests?fbclid=IwAR1ZZ6ndoKZB6ikkTCmpk9KwEBvHy9hav1daogF8uU3eJ3CAsDVlGZU5d3k)<br />
-http://www.albertgao.xyz/2017/05/24/how-to-test-expressjs-with-jest-and-supertest/ <br />
-https://codewithhugo.com/testing-an-express-app-with-supertest-moxios-and-jest/
+https://www.sitepoint.com/promises-in-javascript-unit-tests-the-definitive-guide/<br />
+https://scotch.io/tutorials/how-to-test-nodejs-apps-using-mocha-chai-and-sinonjs<br />
+https://gist.github.com/delwar2016/c06132ca12e1304f99afa397c01de7cc<br />
 
 #### Sequelize
 In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!
