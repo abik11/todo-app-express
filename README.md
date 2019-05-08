@@ -7,6 +7,7 @@ This is some kind of my playground to test and learn stuff connected to Node.js 
 * **Multer** - little example of image uploading
 * **Cloudinary** - storing images on cloud storage
 * **Swiper** - small example of an image gallery made with Swiper
+* **Testing** - examples of unit and integration tests with Mocha (testing framework), Chai (assertion library) and Sinon (mocking library)
 
 The REST API in this project allows to list, add and delete users, which is quite handy while testing the registration mechanism. On production this User API should be authorized, here it is just for example.<br />
 Also it allows to list, add and delete *tasks to do* so it can be used with the following front end clients (that was actually the reason to create this project but it grew a little bit):
@@ -54,10 +55,10 @@ app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
 
 #### Testing
 [Mongoose models and unit tests: The definitive guide](https://codeutopia.net/blog/2016/06/10/mongoose-models-and-unit-tests-the-definitive-guide/)<br />
+[Using Sinon to stub Mongoose calls and return Promise](https://gist.github.com/delwar2016/c06132ca12e1304f99afa397c01de7cc)<br />
 [Write tests. Not too many. Mostly integration.](https://kentcdodds.com/blog/write-tests?fbclid=IwAR1ZZ6ndoKZB6ikkTCmpk9KwEBvHy9hav1daogF8uU3eJ3CAsDVlGZU5d3k)<br />
-https://www.sitepoint.com/promises-in-javascript-unit-tests-the-definitive-guide/<br />
-https://scotch.io/tutorials/how-to-test-nodejs-apps-using-mocha-chai-and-sinonjs<br />
-https://gist.github.com/delwar2016/c06132ca12e1304f99afa397c01de7cc<br />
+[Promises in JavaScript Unit Tests: the Definitive Guide](https://www.sitepoint.com/promises-in-javascript-unit-tests-the-definitive-guide/)<br />
+[How to Test NodeJS Apps using Mocha, Chai and SinonJS](https://scotch.io/tutorials/how-to-test-nodejs-apps-using-mocha-chai-and-sinonjs)<br />
 
 #### Sequelize
 In this project you won't find any sequelize example, but it is a really cool technology, worth exploring!
