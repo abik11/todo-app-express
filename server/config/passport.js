@@ -1,15 +1,6 @@
 const LocalStrategy = require('passport-local');
 const repo = require('@repository/users');
-const bcrypt = require('bcryptjs');
-
-async function compareHashedPassword(givenPassword, dbPassword) {
-    return new Promise((resolve, reject) => {
-        bcrypt.compare(givenPassword, dbPassword, (err, isMatch) => {
-            if (err) reject();
-            else resolve(isMatch);
-        });
-    });
-}
+const { compareHashedPassword } = require('@utils/bcrypt');
 
 module.exports = passport => {
     passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
