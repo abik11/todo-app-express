@@ -14,7 +14,7 @@ if (process.env.NODE_ENV != 'production')
 
 app.set('port', process.env.PORT || 5001);
 app.use(logger('dev'));
-app.use(require('./responses'));
+app.use(require('./utils/responses'));
 require('./config/mongoose');
 require('./config/passport')(passport);
 require('./config/multer')(app);

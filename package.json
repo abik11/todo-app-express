@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production node server/index.js",
     "dev": "cross-env NODE_ENV=development nodemon server/index.js",
-    "test": "cross-env NODE_ENV=test mocha"
+    "test": "cross-env NODE_ENV=test mocha --recursive"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +38,6 @@
   },
   "_moduleAliases": {
     "@repository": "server/repository",
-    "@auth": "server/auth.js"
+    "@utils": "server/utils"
   }
 }

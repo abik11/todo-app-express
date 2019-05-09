@@ -1,8 +1,8 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const User = require('../server/models/user');
-const Role = require('../server/models/role');
-const repo = require('../server/repository/users');
+const User = require('../../server/models/user');
+const Role = require('../../server/models/role');
+const repo = require('../../server/repository/users');
 
 describe('users', () => {
     let allUsers = [];

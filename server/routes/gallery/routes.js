@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('./controller');
-const auth = require('@auth');
+const auth = require('@utils/auth');
 
 router.get('/show', auth, controller.imagesView);
 router.get('/add', auth, controller.uploadView);

@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const Task = require('../server/models/task');
-const repo = require('../server/repository/tasks');
+const Task = require('../../server/models/task');
+const repo = require('../../server/repository/tasks');
 
 describe('tasks', () => {
     let allTasks = [];

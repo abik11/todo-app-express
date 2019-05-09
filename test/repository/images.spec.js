@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const Image = require('../server/models/image');
-const repo = require('../server/repository/images');
+const Image = require('../../server/models/image');
+const repo = require('../../server/repository/images');
 
 describe('images', () => {
     let allImages = [];
