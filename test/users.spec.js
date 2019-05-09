@@ -22,7 +22,7 @@ describe('users', () => {
         sinon.stub(User, 'find').returns(mockFind);
         sinon.stub(User, 'findOne').callsFake(conditions => {
             let user;
-            if(conditions._id != null)
+            if (conditions._id != null)
                 user = allUsers.find(u => u.id == conditions._id);
             else if (conditions.email != null)
                 user = allUsers.find(u => u.email == conditions.email);
@@ -34,12 +34,20 @@ describe('users', () => {
             const deleted = allUsers.splice(conditions._id - 1, 1);
             return Promise.resolve(deleted[0]);
         });
+        sinon.stub(User.prototype, 'save').callsFake(() => {
+            allUsers.push({});
+            return Promise.resolve({});
+        });
+        
+        sinon.stub(Role, 'findOne').returns({ name: 'reader' });
     });
 
     afterEach(() => {
         User.find.restore();
         User.findOne.restore();
         User.deleteOne.restore();
+        User.prototype.save.restore();
+        Role.findOne.restore();
         allUsers = [];
     });
 
@@ -51,8 +59,8 @@ describe('users', () => {
     it('getUserById should return user of given id', async () => {
         let user = await repo.getUserById(10);
         expect(user.id).to.be.equal(10);
-    });  
-    
+    });
+
     it('getUserByEmail should return user of given email', async () => {
         let user = await repo.getUserByEmail('user10@test.com');
         expect(user.id).to.be.equal(10);
@@ -67,5 +75,19 @@ describe('users', () => {
     it('deleteUser should delete user', async () => {
         await repo.deleteUser(1);
         expect(allUsers.length).to.be.equal(99);
-    });    
+    });
+
+    it('deleteUser should not delete not existing user', async () => {
+        await repo.deleteUser(101);
+        expect(allUsers.length).to.be.equal(100);
+    });
+
+    it('addUser should add new user', async () => {
+        await repo.addUser({
+            name: 'Jan Kowalski', 
+            email: 'j.k@test.com', 
+            password: 'secretpass'
+        });
+        expect(allUsers.length).to.be.equal(101);
+    });
 });

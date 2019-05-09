@@ -25,11 +25,16 @@ describe('images', () => {
             const deleted = allImages.splice(id - 1, 1);
             return Promise.resolve(deleted[0]);
         });
+        sinon.stub(Image.prototype, 'save').callsFake(() => {
+            allImages.push({});
+            return Promise.resolve({});
+        });
     });
 
     afterEach(function () {
         Image.find.restore();
         Image.findByIdAndDelete.restore();
+        Image.prototype.save.restore();
         allImages = [];
     });
 
@@ -53,4 +58,19 @@ describe('images', () => {
         await repo.deleteImage(1);
         expect(allImages.length).to.be.equal(99);
     });
+
+    it('deleteImage should not delete not existing image', async () => {
+        await repo.deleteImage(101);
+        expect(allImages.length).to.be.equal(100);
+    });
+
+    it('addImage should add new image', async () => {
+        await repo.addImage({
+            title: 'New image', 
+            description: 'New image', 
+            url: 'http://test.com/images/newimg', 
+            public_id: 'newimg'
+        });
+        expect(allImages.length).to.be.equal(101);
+    });    
 });

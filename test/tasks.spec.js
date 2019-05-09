@@ -22,12 +22,17 @@ describe('tasks', () => {
             const deleted = allTasks.splice(conditions._id - 1, 1);
             return Promise.resolve(deleted[0]);
         });
+        sinon.stub(Task.prototype, 'save').callsFake(() => {
+            allTasks.push({});
+            return Promise.resolve({});
+        });
     });
 
     afterEach(function () {
         Task.find.restore();
         Task.findOne.restore();
         Task.deleteOne.restore();
+        Task.prototype.save.restore();
         allTasks = [];
     });
 
@@ -51,4 +56,16 @@ describe('tasks', () => {
         await repo.deleteTask(1);
         expect(allTasks.length).to.be.equal(99);
     });
+
+    it('deleteTask should not delete not existing task', async () => {
+        await repo.deleteTask(101);
+        expect(allTasks.length).to.be.equal(100);
+    });
+
+    it('addTask should add new task', async () => {
+        await repo.addTask({
+            description: 'New task'
+        });
+        expect(allTasks.length).to.be.equal(101);
+    });    
 });
