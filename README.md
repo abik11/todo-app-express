@@ -12,7 +12,6 @@ This is some kind of my playground to test and learn stuff connected to Node.js 
 The REST API in this project allows to list, add and delete users, which is quite handy while testing the registration mechanism. On production this User API should be authorized, here it is just for example.<br />
 Also it allows to list, add and delete *tasks to do* so it can be used with the following front end clients (that was actually the reason to create this project but it grew a little bit):
 * [Vue.js](https://github.com/abik11/todo-app-vue)
-* [React](https://github.com/abik11/todo-app-react) (this one is just starting slowly.....) 
 
 ### Configuration
 To make it all work you have to set three system variables:
