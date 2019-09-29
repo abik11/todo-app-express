@@ -21,6 +21,25 @@ To make it all work you have to set three system variables:
 
 You can add `.env` file with variables definition.
 
+##### Production release
+It is a very good idea to use a process manager to control Node.js process while releasing application for production. One very popular process manager is **PM2**. To install PM2, start Node.js app and add it server startup run following commands:
+```
+npm install pm2 -g
+pm2 start server/index.js
+pm2 startup ubuntu
+```
+PM2 will run Node.js process in the background and will restart it in case if it crash. You can monitor your process anc check logs easily (you will also see all texts printed through `console.log` in logs):
+```
+pm2 status
+pm2 logs
+pm2 flush #to clear logs
+```
+Sometimes it also might be useful to restart the process:
+```
+pm2 restart server/index.js
+```
+For more (much more), go [here](http://pm2.keymetrics.io/).
+
 ### How to enable SPA apps 
 ```javascript
 app.get(/.*/, (req, res) => res.sendFile('/public/index.html'));
