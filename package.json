@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production node server/index.js",
+    "prod": "cross-env NODE_ENV=production pm2 start server/index.js",    
     "dev": "cross-env NODE_ENV=development nodemon server/index.js",
     "test": "cross-env NODE_ENV=test mocha --recursive"
   },
